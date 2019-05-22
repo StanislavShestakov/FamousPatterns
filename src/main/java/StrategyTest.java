@@ -2,6 +2,13 @@
  * Created by Stas on 22.05.2019.
  */
 public class StrategyTest {
+
+    //1. отделите  изменяющиеся части приложения от неизменяющихся, и объедените их в отдельный
+    // аспект
+
+
+    // 2. нужно программировать на уровне интерфейсов, а не на уровне реализаций
+
     public static void main(String[] args) {
         DoorA door = new DoorA();
 
