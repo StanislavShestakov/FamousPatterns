@@ -2,16 +2,18 @@
  * Created by Stas on 29.05.2019.
  */
 public class FacadeTutorial {
-    public static void main(String[] args) {
-        Job job = new Job();
-        job.doJob();
-        BugTracker bugTracker = new BugTracker();
-        bugTracker.startSprint();
-        Developer4 developer = new Developer4();
-        developer.doJobBeforeDeadLine(bugTracker);
+    /*
+    Цель: предоставить унифицированный интерфейс вместо нескольких
+    интерфейсов подсистем
+    используеться для определения интерфейса высокого уровня, который упрощает использование подсистемы
 
-        bugTracker.finishSprint();
-        developer.doJobBeforeDeadLine(bugTracker);
+    1.использование клиентов от компонентов подсистемы, упрощая работу с ней;
+    2.необходимость ослабления свызаности подсистемы с клиентами.
+     */
+    public static void main(String[] args) {
+        Workflow workflow = new Workflow();
+
+        workflow.solveProblems();
     }
 }
 class Job{
@@ -43,5 +45,16 @@ class Developer4{
         }else{
             System.out.println("Developer is reading stackoverflow");
         }
+    }
+}
+class Workflow{
+    Developer4 developer = new Developer4();
+    Job job = new Job();
+    BugTracker bugTracker = new BugTracker();
+
+    public  void solveProblems(){
+        job.doJob();
+        bugTracker.finishSprint();
+        developer.doJobBeforeDeadLine(bugTracker);
     }
 }
