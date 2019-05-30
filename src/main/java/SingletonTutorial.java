@@ -12,14 +12,26 @@ public class SingletonTutorial {
     своего кода.
      */
     public static void main(String[] args) {
+        System.out.println(ProgramLogger.getProgramLogger().toString());
+        System.out.println(ProgramLogger.getProgramLogger().toString());
+        System.out.println(ProgramLogger.getProgramLogger().toString());
+        System.out.println(ProgramLogger.getProgramLogger().toString());
+        System.out.println(ProgramLogger.getProgramLogger().toString());
 
+        System.out.println("=========================");
+
+        ProgramLogger.getProgramLogger().addLogInfo("Fisrt log...");
+        ProgramLogger.getProgramLogger().addLogInfo("Second log...");
+        ProgramLogger.getProgramLogger().addLogInfo("Third log...");
+
+        ProgramLogger.getProgramLogger().showLogFile();
     }
 }
 class ProgramLogger{
     private static  ProgramLogger programLogger;
     private static String  logFile = "This is log file. \n\n";
 
-    public static ProgramLogger getProgramLogger(){
+    public  static synchronized ProgramLogger getProgramLogger(){
         if(programLogger == null){
             programLogger = new ProgramLogger();
         }
@@ -32,7 +44,7 @@ class ProgramLogger{
         logFile += logInfo + "\n";
     }
 
-    public void shoeFile(){
+    public void showLogFile(){
         System.out.println(logFile);
     }
 }
