@@ -62,7 +62,7 @@ class CppDeveloper3 implements Developer7 {
 
     @Override
     public void writeCode() {
-        System.out.println("c++ developer write java c++ code");
+        System.out.println("c++ developer write c++ code");
 
     }
 }
